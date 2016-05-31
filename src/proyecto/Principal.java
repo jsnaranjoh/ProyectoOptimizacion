@@ -1,12 +1,14 @@
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Proyecto Complejidad y Optimización
+ * Simón Naranjo
+ * Andrés Cabrera
  */
 package proyecto;
 
 import java.util.List;
+import lpsolve.LpSolve;
+import lpsolve.LpSolveException;
 
 /**
  *
@@ -14,6 +16,26 @@ import java.util.List;
  */
 public class Principal {
     
-    List<Integer> Aviones;
-    List<Integer> Aldeas;
+    private Integer[][] alimentos;//[aldeas][aviones]
+    private Integer[][] vuelos;//[aldeas][aviones]
+    
+    private List<Integer> aldeas;
+    private List<Integer> aviones;
+    
+    private LpSolve lpS;
+    
+    public void leerEntrada() {
+        
+    }
+    
+    public void optimizar() {
+        try {
+            alimentos = new Integer[0][0];
+            vuelos = new Integer[0][0];
+            lpS = LpSolve.makeLp(0, 0);
+            
+        } catch (LpSolveException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
