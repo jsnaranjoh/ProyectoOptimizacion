@@ -24,6 +24,11 @@ public class Principal {
     
     private LpSolve lpS;
     
+    public void ejecutar() {
+        leerEntrada();
+        optimizar();
+    }
+    
     public void leerEntrada() {
         
     }
@@ -37,5 +42,9 @@ public class Principal {
         } catch (LpSolveException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public static void main(String[] args) {
+        new Principal().ejecutar();
     }
 }
