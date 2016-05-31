@@ -49,12 +49,19 @@ public class Principal {
         String[] listaTokensPrimeraLinea = listaLineas.get(0).split("\\s");
         Integer nAldeas = Integer.parseInt(listaTokensPrimeraLinea[0]);
         Integer nAviones = Integer.parseInt(listaTokensPrimeraLinea[1]);
+        
+        alimentos = new Integer[nAldeas][nAviones];
+        vuelos = new Integer[nAldeas][nAviones];
+        
+        for(Integer i=1; i<=nAviones && i<(listaLineas.size()-2); i++) {
+            String[] listaTokensNLinea = listaLineas.get(i).split("\\s");
+            for(Integer j=0; j<nAldeas && j<listaTokensNLinea.length; j++) {
+                alimentos[j][i-1] = Integer.parseInt(listaTokensNLinea[j]);
+            }
+        }
     }
     
     public void optimizar() {
-        alimentos = new Integer[0][0];
-        vuelos = new Integer[0][0];
-        
         try {
             lpS = LpSolve.makeLp(0, 0);
         } catch (LpSolveException ex) {
