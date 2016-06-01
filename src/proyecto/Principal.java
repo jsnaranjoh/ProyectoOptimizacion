@@ -22,7 +22,7 @@ public class Principal {
     private Integer[][] alimentos;//[aldeas][aviones]
     private Integer[][] vuelos;//[aldeas][aviones]
     
-    private List<Integer> aldeas;
+    private List<Integer> maxAvionesAldea;
     private List<Integer> maxViajesAvion;
     
     private LpSolve lpS;
@@ -63,6 +63,11 @@ public class Principal {
         String[] listaTokensPenultimaLinea = listaLineas.get(listaLineas.size()-1).split("\\s");
         for(Integer i=0; i<nAviones && i<listaTokensPenultimaLinea.length; i++) {
             maxViajesAvion.add(Integer.parseInt(listaTokensPenultimaLinea[i]));
+        }
+        
+        String[] listaTokensUltimaLinea = listaLineas.get(listaLineas.size()).split("\\s");
+        for(Integer i=0; i<nAldeas && i<listaTokensUltimaLinea.length; i++) {
+            maxAvionesAldea.add(Integer.parseInt(listaTokensUltimaLinea[i]));
         }
     }
     
